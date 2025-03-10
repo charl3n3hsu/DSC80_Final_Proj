@@ -1,2 +1,2 @@
-# DSC80_Final_Proj
+# Predicting Power Outages
 DSC80 Final Project
