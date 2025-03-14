@@ -64,6 +64,33 @@ The p-value obtained was 0.0, which shows that we should reject the null hypothe
 
 ## Final Model
 
+#### Improvements from Baseline Model
+To enhance our baseline model, we incorporated feature engineering, explored non-linear relationships, and performed hyperparameter tuning to optimize the model’s performance. 
+
+Notable Improvements include the following:
+- Addition of New Features
+    - DEMAND.LOSS.MW (Megawatts lost due to outage): A key indicator of outage severity. 
+    - CUSTOMERS.AFFECTED (Number of customers affected by the outage): Higher value could indicate longer restoration times, as more people are affected.
+    - DEMAND_PER_CUSTOMER (Ratio of demand loss per customer): Captures the outage impact per customer
+    - LOG_DEMAND_LOSS (Log-transformed demand loss): Put in place to normalize skewed data for better regression analysis
+    - MONTH (Month in which the outage occurred): Captures the seasonal patterns affecting the outage duration. 
+- Handling Missing Values
+    - We used median imputation to handle missing values in DEMAND.LOSS.MW and CUSTOMERS.AFFECTED to ensure consistency within our dataset.
+    - We replaced infinite values with NaN and re-imputed them to avoid computational errors from occurring. 
+- Modeling Approach
+    - We applied Polynomial Regression to capture non-linear relationships in the data, rather than using a simple Linear Regression model. 
+    - We used PolynomialFeatures() within an sklearn Pipeline to generate the polynomial terms.
+- Hyperparameter Tuning
+    - We applied GridSearchCV to find the best polynomial degree (poly_degree), testing values of 1, 2, and 3. 
+    - The best-performing model had a polynomial degree of 1, which suggests that a linear relationship best fits our dataset. 
+
+#### Final Model Performance Assessment
+After training and evaluating our final model on the test set, we obtained the following results:
+- Mean Squared Error (MSE): 24966319.61238235
+- $R^2$ Score: 0.071
+
+Although the $R^2$ score is still relatively low, we can see a noticeable improvement compared to the results from our baseline model (MSE: 26,061,252.56, R²: 0.0077). The decrease in our MSE value indicates that the model’s predictions are closer to the actual outage durations than before, meaning the model has better accuracy. The increase in our $R^2$ score suggests that the model captures more variance in outage duration, although there is still a significant amount of unexplained variance, indicating that additional features or a different modeling approach could further improve our performance. 
+
 
 ## Fairness Analysis
 
