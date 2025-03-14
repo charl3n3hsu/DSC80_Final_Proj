@@ -58,6 +58,42 @@ The p-value obtained was 0.0, which shows that we should reject the null hypothe
 
 ## Framing a Prediction Problem
 
+#### Prediction Type: Regression
+The goal of this prediction task is to predict the duration of a power outage (OUTAGE.DURATION) based on several factors that are available at the start of the outage, including cause and climate. Since our target variable is a continuous numerical value, we define this as a regression problem rather than a classification problem. 
+
+#### Response Variable: OUTAGE.DURATION
+We chose OUTAGE.DURATION as our response variable understanding the length of outages can help the following:
+- Businesses: Plan for potential financial losses
+- Utility Companies: Improve infrastructure and optimize restoration efforts
+- Emergency Responders: Better prepare for different situations and allocation of resources
+- Policy-makers: Use data-driven insights to improve power grid reliability
+Overall, we can help predict future outages and enable proactive measures to reduce economic loss and better prepare for such emergencies. 
+
+#### Evaluation Metrics
+To assess the performance of our model, we used the following metrics:
+- Mean Squared Error (MSE): MSE was chosen as our primary form of evaluation metric because it helps to measure how far predicted outage durations deviate from the actual durations. It also is suitable for larger errors, allowing for outliers in the outage duration to have more weight.  
+- R2 (Coefficient of Determination): R2 was chosen as our second metric because it measures how well our model performs with variability in OUTAGE.DURATION. A higher value of R2 indicates a better fit, allowing us to understand how well our model is performing with outage duration.  
+MSE is prioritized, as there are significant outliers in OUTAGE.DURATION.
+
+#### Justification of Features
+The model only includes features that are known at the start of an outage. The selected features include the following:
+- CAUSE.CATEGORY (Categorical): Used to identify the general cause of the outage, such as severe weather, equipment failure, etc. 
+- CLIMATE.CATEGORY (Categorical): Describes the climate type in which the outage occurred, severe weathers may influence the duration
+- MONTH (Numerical): Helps us to identify the seasonal trends that may affect the outages.
+
+Some additional features that may be used, but are not known prior to the outages include the following: 
+- DEMAND.LOSS.MW (Numerical): Measures the severity of the outage based on power demand loss. 
+- CUSTOMERS.AFFECTED (Numerical): Larger outages may take longer to restore, more individuals being affected. 
+
+#### Challenges
+Some challenges that we faced while developing a outage duration prediction model include:  
+- Handling Categorical Data
+    - Most of the dataset contains categorical variables, which required us to one-hot encode.
+    - We applied one-hot encoding for categorical features used such as CAUSE.CATEGORY and CLIMATE.REGION to convert them into a numerical format.
+- Missing Data
+    Variables including OUTAGE.DURATION had missing values in the dataset. To mitigate this, we had to perform a missingness analysis and group-wise median imputation to fill in the missing values based on the median outage duration for each cause category.
+- Skewed Data
+    - Our target variable also has extreme outliers, meaning that we may need to apply log transformation to deal with the outliers.
 
 ## Baseline Model
 
