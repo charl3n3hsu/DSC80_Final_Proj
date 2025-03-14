@@ -61,6 +61,32 @@ The p-value obtained was 0.0, which shows that we should reject the null hypothe
 
 ## Baseline Model
 
+#### Chosen Model: Linear Regression with a Pipeline
+For our baseline model, we chose to implement a Linear Regression model using an sklearn Pipeline, to ensure that all preprocessing steps such as encoding categorical variables were integrated within our training steps. 
+
+##### Features Used
+Our model uses the following two categorical features to predict the duration of outages:
+- CAUSE.CATEGORY (Nomial, Categorical)
+    - Represents the general cause of the power outage, such as severe weather, equipment failure, intentional attack, etc. 
+    - Encoding Method: One-hot encoding, since there is no order among these categories. 
+- CLIMATE.REGION (Nominal, Categorical)
+    - Represents the climate region where the outage occurred, such as the Northeast, West, South, etc. 	
+    - Encoding Method: One-hot encoding, since there is no order among these categories. 
+
+
+#### Encoding and Model Training
+- One-hot encoding was applied to the categorical variables, as mentioned above using a ColumnTransformer. 
+- We split the dataset into training (80%) and testing (20%) sets to evaluate model generalization.
+- The final pipeline consists of
+    - Preprocessing step: One-hot encoding of categorical features
+    - Regressoin: Linear Regression to predict OUTAGE.DURATION 
+
+#### Baseline Model Performance and Assessment
+After training and evaluating our baseline model on the test set, we obtained the following results:
+- Mean Squared Error (MSE): 26,061,252.55965856
+- $R^2$ Score: 0.007262599857186136
+
+The baseline model’s low $R^2$ score of 0.0077 shows that it does not do a good job of explaining the variance in outage durations. This suggests that additional features may be needed to improve our model’s performance. Some limitations of our baseline model include limited feature selection and the complex relationship between our chosen features and outage duration. The baseline model only considers CAUSE.CATEGORY and CLIMATE.REGION, which do not account for other potential predictive features such as DEMAND.LOSS.MW and CUSTOMERS.AFFECTED. The performance of our model suggests that outage duration is likely influenced by multiple interacting factors, which this baseline model currently fails to capture. In addition to the lack of necessary features, power outages and their durations may not follow a simple linear relationship.
 
 ## Final Model
 
