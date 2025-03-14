@@ -48,7 +48,9 @@ To make the missingness MAR for ‘CAUSE.CATEGORY.DETAIL’, additional data wou
 ## Hypothesis Testing
 
 **Null Hypothesis:** Major power outages are not affected by the cause of the outage.
+
 **Alternative Hypothesis:** Major power outages are affected by the cause of the outage.
+
 **Test Statistic:** Absolute difference in means
 
 The p-value obtained was 0.0, which shows that we should reject the null hypothesis. This shows that the cause category significantly affects the outage duration, therefore we got a p-value that was significantly small, so the observed difference is unlikely due to chance.
@@ -71,6 +73,7 @@ For our fairness analysis:
 - Evaluation metric: RMSE (Root Mean Squared Error)
 
 **Null hypothesis:** Power outages that are caused by severe weather and power outages that are not caused by severe weather will have the same RMSE, which will mean that the observed differences will be due to chance.
+
 **Alternate hypothesis:** Power outages that are caused by severe weather and power outages that are not caused by severe weather will not have the same RMSE, rather it would be higher, which will mean that the model performs more poorly with outages that are caused by severe weather.
 
 - Test statistic: the observed difference in RMSE between outages caused by severe weather and outages not caused by severe weather
