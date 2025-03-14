@@ -1,7 +1,7 @@
 # Predicting Power Outages and Their Cause
 DSC80 Final Project
 
-Names: Ava Jeong & Charlene Hsu
+**Names: Ava Jeong & Charlene Hsu**
 
 ## Introduction
 
