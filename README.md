@@ -3,6 +3,7 @@ DSC80 Final Project
 
 **Names: Ava Jeong & Charlene Hsu**
 
+
 ## Introduction
 
 Power outages information and data is constantly updated as outages across the United States provide for thousands of data for various regions. This dataset on power outages provides detailed records of major power outages across the United States across several years. Information on regional, geographical data on the outages, climate factors, causes of the power outages, the durations of outages (including the start and restoration times of the outage), population affected, and economical effects of the outage are detailedly provided through this dataset.
@@ -49,23 +50,13 @@ print(outages.head().to_markdown(index=False))
 ```
 
 
-|   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE         | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE    | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   POPULATION |   POPPCT_URBAN |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND |   DEMAND_PER_CUSTOMER |   LOG_DEMAND_LOSS |   natural_cause |
-|-------:|--------:|:-------------|:-------------------|----------------:|:-------------------|:--------------------------|:--------------------|:---------------------------|:--------------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|-------------:|---------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|----------------------:|------------------:|----------------:|
-|   2011 |       7 | Minnesota    | East North Central |            -0.3 | normal             | Friday, July 01, 2011     | 5:00:00 PM          | Sunday, July 03, 2011      | 8:00:00 PM                | severe weather     | nan                     |               nan |              3060 |              168 |                70000 |  5.34812e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.0024     |           5.1299  |               1 |
-|   2014 |       5 | Minnesota    | East North Central |            -0.1 | normal             | Sunday, May 11, 2014      | 6:38:00 PM          | Sunday, May 11, 2014       | 6:39:00 PM                | intentional attack | vandalism               |               nan |                 1 |              168 |                70135 |  5.45712e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.00239538 |           5.1299  |               0 |
-|   2010 |      10 | Minnesota    | East North Central |            -1.5 | cold               | Tuesday, October 26, 2010 | 8:00:00 PM          | Thursday, October 28, 2010 | 10:00:00 PM               | severe weather     | heavy wind              |               nan |              3000 |              168 |                70000 |  5.3109e+06  |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.0024     |           5.1299  |               1 |
-|   2012 |       6 | Minnesota    | East North Central |            -0.1 | normal             | Tuesday, June 19, 2012    | 4:30:00 AM          | Wednesday, June 20, 2012   | 11:00:00 PM               | severe weather     | thunderstorm            |               nan |              2550 |              168 |                68200 |  5.38044e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.00246334 |           5.1299  |               1 |
-|   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | Saturday, July 18, 2015   | 2:00:00 AM          | Sunday, July 19, 2015      | 7:00:00 AM                | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |  5.48959e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.001      |           5.52545 |               1 |
-
-
-<iframe src="Figures/outages.html" width="800" height="600"></iframe>
-
-
 #### Univariate Analysis:
 
 To gain a better understanding of key variables in our dataset, we performed a univariate analysis through visualizations. Below are two plots we generated, along with the description of trends we found in the data.
 
-###### Frequency Distribution of Cause of Outages:
+##### Frequency Distribution of Cause of Outages:
+
+<iframe src="Figures/univariate1.html" width="800" height="600"></iframe>
 
 The bar plot above describes the frequency of different causes of power outages.
 
@@ -76,7 +67,9 @@ From the plot we can see that:
 
 Through this analysis, we can see that severe weather is a leading cause of power outages, indicating that weather-related factors play a crucial role in outage occurrences.
 
-###### Box Plot of Outage Duration:
+##### Box Plot of Outage Duration:
+
+<iframe src="Figures/univariate2.html" width="800" height="600"></iframe>
 
 The box plot visualizes the distribution of power outage durations across all recorded incidents.
 
@@ -92,11 +85,17 @@ This analysis shows that the outage durations in our dataset vary significantly 
 
 To determine the relationships between key variables, we performed a bivariate analysis through visualizations. Below are the plots we generated, along with the description of trends we found in the data.
 
-###### Outage Duration by Climate Region (Box Plot):
+##### Outage Duration by Climate Region (Box Plot):
 
 <iframe src="Figures/bivariate1.html" width="800" height="600"></iframe>
 
-###### Outage Duration by Cause Category (Box Plot):
+##### Outage Duration by Climate Region (Scatter Plot):
+
+<iframe src="Figures/bivariate2.html" width="800" height="600"></iframe>
+
+##### Outage Duration by Cause Category (Box Plot):
+
+<iframe src="Figures/bivariate3.html" width="800" height="600"></iframe>
 
 The box plot shows how different causes impact power outage durations. 
 
@@ -109,6 +108,8 @@ This visualization suggests that the cause category is a significant factor of o
 
 ###### Outage Duration by Cause Category (Scatter Plot):
 
+<iframe src="Figures/bivariate4.html" width="800" height="600"></iframe>
+
 To gain better visibility on the distribution, we also used a scatter plot to examine overlapping points.
 
 From the plot we can see that:
@@ -119,6 +120,10 @@ From the plot we can see that:
 This visualization further supports that certain causes tend to result in more prolonged outages.
 
 #### Pivot Table of Mean Outage Duration by Climate Region and Cause Category:
+
+```py
+print(pivot_table.to_markdown(index=False))
+```
 
 This pivot table shows the average outage duration grouped by climate region and cause category.
 
@@ -144,12 +149,14 @@ We implemented a permutation test, analyzing the missingness of `OUTAGE.DURATION
 
 In conclusion, the missingness of `OUTAGE.DURATION` is Missing at Random (MAR) because it depends on the observed variable `CAUSE.CATEGORY`.
 
-
 ##### Plot Interpretation:
+
+<iframe src="Figures/missingness1.html" width="800" height="600"></iframe>
 
 The histogram above shows the empirical distribution of the test statistic (mean difference) from 1,000 permutations when testing whether the missingness in our target variable (`OUTAGE.DURATION`) depends on `CAUSE.CATEGORY`. The red dashed vertical line is the observed mean difference, with a value of 0.0863 between the `CAUSE.CATEGORY` distributions for missing and non-missing values in `OUTAGE.DURATION`.
 
 Because the observed difference is significantly greater than all the permuted differences and the p-value is 0.0, we reject the null hypothesis. This indicates that the missingness in our target variable depends on `CAUSE.CATEGORY`, meaning that certain causes could result in missing outage durations more than others. This suggests Missing At Random (MAR) behavior, meaning the likelihood of missing values in outage duration is influenced by the cause of the outage.
+
 
 ## Hypothesis Testing
 
@@ -167,6 +174,8 @@ Because the observed difference is significantly greater than all the permuted d
 The p-value obtained was 0.0, which shows that we should reject the null hypothesis in this case. This shows that the cause category significantly affects the outage duration, therefore we got a p-value that was significantly small, so the observed difference is unlikely due to chance in this case. As a disclaimer, this result could also be due to other factors that may affect the OUTAGE.DURATION and be relevant to the duration of an outage.
 
 ###### Plot Interpretation:
+
+<iframe src="Figures/hypothesis1.html" width="800" height="600"></iframe>
 
 The histogram that plots the empirical distribution of the absolute difference in means for `CAUSE.CATEGORY` and `OUTAGE.DURATION` is heavily right skewed. This shows that most of the permuted differences cluster mainly on the right, meaning that the test results in differences that are in majority small, with just a few differences that are larger occurring in the right tail. The observed difference is also in the far right of the histogram meaning that the observed difference is larger than most permuted differences that were computed. This diagram further shows that the observed difference is unlikely to be due to chance and that the `CAUSE.CATEGORY` truly does affect the `OUTAGE.DURATION`.
 
@@ -211,6 +220,7 @@ Some challenges that we faced while developing a outage duration prediction mode
 - Skewed Data
     - Our target variable also has extreme outliers, meaning that we may need to apply log transformation to deal with the outliers.
 
+
 ## Baseline Model
 
 #### Chosen Model: Linear Regression with a Pipeline
@@ -243,6 +253,7 @@ After training and evaluating our baseline model on the test set, we obtained th
 - $R^2$ Score: 0.007262599857186136
 
 The baseline model’s low $R^2$ score of 0.0077 shows that it does not do a good job of explaining the variance in outage durations. This suggests that additional features may be needed to improve our model’s performance. Some limitations of our baseline model include limited feature selection and the complex relationship between our chosen features and outage duration. The baseline model only considers `CAUSE.CATEGORY` and `CLIMATE.REGION`, which do not account for other potential predictive features such as `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED`. The performance of our model suggests that outage duration is likely influenced by multiple interacting factors, which this baseline model currently fails to capture. In addition to the lack of necessary features, power outages and their durations may not follow a simple linear relationship.
+
 
 ## Final Model
 
@@ -291,6 +302,7 @@ After training and evaluating our final model on the test set, we obtained the f
 - $R^2$ Score: 0.01183
 
 Although the $R^2$ score is still relatively low, we can see a noticeable improvement compared to the results from our baseline model (MSE: 26,061,252.56, R²: 0.0077). The decrease in our MSE value indicates that the model’s predictions are closer to the actual outage durations than before, meaning the model has better accuracy. The increase in our $R^2$ score suggests that the model captures more variance in outage duration, although there is still a significant amount of unexplained variance, indicating that additional features or a different modeling approach could further improve our performance.
+
 
 ## Fairness Analysis
 
