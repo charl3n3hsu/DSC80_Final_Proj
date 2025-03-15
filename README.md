@@ -43,6 +43,12 @@ After deciding the relevant columns and having the DataFrame `outage` consist of
 To clean this data and account for this many missing values in just our relevant columns, we will need to impute the entire dataset to account for all missing values for both numerical and categorical columns, which we created a function that would account for both the numerical and categorical columns in the DataFrame.
 
 #### Cleaned DataFrame:
+
+```py
+print(outages.head().to_markdown(index=False))
+```
+
+
 |   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE         | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE    | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   POPULATION |   POPPCT_URBAN |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND |   DEMAND_PER_CUSTOMER |   LOG_DEMAND_LOSS |   natural_cause |
 |-------:|--------:|:-------------|:-------------------|----------------:|:-------------------|:--------------------------|:--------------------|:---------------------------|:--------------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|-------------:|---------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|----------------------:|------------------:|----------------:|
 |   2011 |       7 | Minnesota    | East North Central |            -0.3 | normal             | Friday, July 01, 2011     | 5:00:00 PM          | Sunday, July 03, 2011      | 8:00:00 PM                | severe weather     | nan                     |               nan |              3060 |              168 |                70000 |  5.34812e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.0024     |           5.1299  |               1 |
