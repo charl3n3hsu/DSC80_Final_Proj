@@ -153,6 +153,10 @@ Because the observed difference is significantly greater than all the permuted d
 #### Conclusions:
 The p-value obtained was 0.0, which shows that we should reject the null hypothesis in this case. This shows that the cause category significantly affects the outage duration, therefore we got a p-value that was significantly small, so the observed difference is unlikely due to chance in this case. As a disclaimer, this result could also be due to other factors that may affect the OUTAGE.DURATION and be relevant to the duration of an outage.
 
+###### Plot Interpretation:
+
+The histogram that plots the empirical distribution of the absolute difference in means for `CAUSE.CATEGORY` and `OUTAGE.DURATION` is heavily right skewed. This shows that most of the permuted differences cluster mainly on the right, meaning that the test results in differences that are in majority small, with just a few differences that are larger occurring in the right tail. The observed difference is also in the far right of the histogram meaning that the observed difference is larger than most permuted differences that were computed. This diagram further shows that the observed difference is unlikely to be due to chance and that the `CAUSE.CATEGORY` truly does affect the `OUTAGE.DURATION`.
+
 
 ## Framing a Prediction Problem
 
