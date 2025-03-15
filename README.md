@@ -49,12 +49,20 @@ To clean this data and account for this many missing values in just our relevant
 print(outages.head().to_markdown(index=False))
 ```
 
+|   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE         | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE    | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   | HURRICANE.NAMES   |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   POPULATION |   POPPCT_URBAN |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND |   natural_cause |
+|-------:|--------:|:-------------|:-------------------|----------------:|:-------------------|:--------------------------|:--------------------|:---------------------------|:--------------------------|:-------------------|:------------------------|:------------------|------------------:|-----------------:|---------------------:|-------------:|---------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|----------------:|
+|   2011 |       7 | Minnesota    | East North Central |            -0.3 | normal             | Friday, July 01, 2011     | 5:00:00 PM          | Sunday, July 03, 2011      | 8:00:00 PM                | severe weather     | vandalism               | Sandy             |              3060 |              168 |                70000 |  5.34812e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |               1 |
+|   2014 |       5 | Minnesota    | East North Central |            -0.1 | normal             | Sunday, May 11, 2014      | 6:38:00 PM          | Sunday, May 11, 2014       | 6:39:00 PM                | intentional attack | vandalism               | Sandy             |                 1 |              168 |                70135 |  5.45712e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |               0 |
+|   2010 |      10 | Minnesota    | East North Central |            -1.5 | cold               | Tuesday, October 26, 2010 | 8:00:00 PM          | Thursday, October 28, 2010 | 10:00:00 PM               | severe weather     | heavy wind              | Sandy             |              3000 |              168 |                70000 |  5.3109e+06  |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |               1 |
+|   2012 |       6 | Minnesota    | East North Central |            -0.1 | normal             | Tuesday, June 19, 2012    | 4:30:00 AM          | Wednesday, June 20, 2012   | 11:00:00 PM               | severe weather     | thunderstorm            | Sandy             |              2550 |              168 |                68200 |  5.38044e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |               1 |
+|   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | Saturday, July 18, 2015   | 2:00:00 AM          | Sunday, July 19, 2015      | 7:00:00 AM                | severe weather     | vandalism               | Sandy             |              1740 |              250 |               250000 |  5.48959e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |               1 |
+
 
 #### Univariate Analysis:
 
 To gain a better understanding of key variables in our dataset, we performed a univariate analysis through visualizations. Below are two plots we generated, along with the description of trends we found in the data.
 
-##### Frequency Distribution of Cause of Outages:
+##### **Frequency Distribution of Cause of Outages:**
 
 <iframe src="Figures/univariate1.html" width="800" height="600"></iframe>
 
@@ -67,7 +75,7 @@ From the plot we can see that:
 
 Through this analysis, we can see that severe weather is a leading cause of power outages, indicating that weather-related factors play a crucial role in outage occurrences.
 
-##### Box Plot of Outage Duration:
+##### **Box Plot of Outage Duration:**
 
 <iframe src="Figures/univariate2.html" width="800" height="600"></iframe>
 
@@ -81,19 +89,37 @@ From the plot we can see that:
 
 This analysis shows that the outage durations in our dataset vary significantly and include extreme cases.
 
+
 #### Bivariate Analysis:
 
 To determine the relationships between key variables, we performed a bivariate analysis through visualizations. Below are the plots we generated, along with the description of trends we found in the data.
 
-##### Outage Duration by Climate Region (Box Plot):
+##### **Outage Duration by Climate Region (Box Plot):**
 
 <iframe src="Figures/bivariate1.html" width="800" height="600"></iframe>
 
-##### Outage Duration by Climate Region (Scatter Plot):
+The box plot shows how outage duration varies across different climate regions.
+
+From the plot we can see that:
+- The East North Central region has the longest median outage duration, along with mutliple outliers.
+- The South and West regions also show variability in outage durations.
+- While most outage durations last relatively short, some climate regions have more long-duration outages, possibly suggesting that climate factors could play a role in the duration of power outages.
+
+This visualization shows how climate-based factors could play a role in predicting power outage durations.
+
+##### **Outage Duration by Climate Region (Scatter Plot):**
 
 <iframe src="Figures/bivariate2.html" width="800" height="600"></iframe>
 
-##### Outage Duration by Cause Category (Box Plot):
+To gain better visability on the distribution, we also used a scatter plot to examine overlapping points.
+
+From the plot we can see that:
+- A majority of outages are clustered around the lower durations, with few outliers.
+- Some regions have consistently longer outages.
+
+This visualization further supports that climate region could be an important factor in our model.
+
+##### **Outage Duration by Cause Category (Box Plot):**
 
 <iframe src="Figures/bivariate3.html" width="800" height="600"></iframe>
 
@@ -106,7 +132,7 @@ From the plot we can see that:
 
 This visualization suggests that the cause category is a significant factor of outage duration, as we observe that different causes lead to different restoration times.
 
-###### Outage Duration by Cause Category (Scatter Plot):
+##### **Outage Duration by Cause Category (Scatter Plot):**
 
 <iframe src="Figures/bivariate4.html" width="800" height="600"></iframe>
 
@@ -124,6 +150,19 @@ This visualization further supports that certain causes tend to result in more p
 ```py
 print(pivot_table.to_markdown(index=False))
 ```
+
+|   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+|             293.143 |                10035.2  |              315.526 |     125.333 |         1410    |          3238.3  |                        2469.73  |
+|           26435.3   |                27969    |             2376.05  |       1     |          733    |          4434.82 |                        2610     |
+|             216.667 |                14629.6  |              191.837 |     881     |         2655    |          4342.68 |                         705.062 |
+|             702     |                    1    |              359.528 |      75     |          898    |          4510    |                         141     |
+|             288.3   |                11687.1  |              325.607 |     493.5   |         1163.98 |          4271.71 |                         866.074 |
+|             487.8   |                    0    |              504.667 |       0     |         2865.4  |          2659.13 |                         169.312 |
+|             113.8   |                 2018    |              255.844 |       2     |         2275    |         11572.9  |                         329.222 |
+|             524.81  |                 5250.94 |              857.677 |     214.857 |         2028.11 |          2908.3  |                         356.415 |
+|              61     |                 3960    |               23.5   |      68.2   |          439.5  |          2442.5  |                           0     |
+
 
 This pivot table shows the average outage duration grouped by climate region and cause category.
 
@@ -173,9 +212,9 @@ Because the observed difference is significantly greater than all the permuted d
 #### Conclusions:
 The p-value obtained was 0.0, which shows that we should reject the null hypothesis in this case. This shows that the cause category significantly affects the outage duration, therefore we got a p-value that was significantly small, so the observed difference is unlikely due to chance in this case. As a disclaimer, this result could also be due to other factors that may affect the OUTAGE.DURATION and be relevant to the duration of an outage.
 
-###### Plot Interpretation:
+##### Plot Interpretation:
 
-<iframe src="Figures/hypothesis1.html" width="800" height="600"></iframe>
+<iframe src="Figures/hypothesis_test_1.html" width="800" height="600"></iframe>
 
 The histogram that plots the empirical distribution of the absolute difference in means for `CAUSE.CATEGORY` and `OUTAGE.DURATION` is heavily right skewed. This shows that most of the permuted differences cluster mainly on the right, meaning that the test results in differences that are in majority small, with just a few differences that are larger occurring in the right tail. The observed difference is also in the far right of the histogram meaning that the observed difference is larger than most permuted differences that were computed. This diagram further shows that the observed difference is unlikely to be due to chance and that the `CAUSE.CATEGORY` truly does affect the `OUTAGE.DURATION`.
 
