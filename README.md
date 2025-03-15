@@ -289,9 +289,9 @@ Our model uses the following two categorical features to predict the duration of
 
 After training and evaluating our baseline model on the test set, we obtained the following results:
 - Mean Squared Error (MSE): 26,061,252.55965856
-- $R^2$ Score: 0.007262599857186136
+- R² Score: 0.007262599857186136
 
-The baseline model’s low $R^2$ score of 0.0077 shows that it does not do a good job of explaining the variance in outage durations. This suggests that additional features may be needed to improve our model’s performance. Some limitations of our baseline model include limited feature selection and the complex relationship between our chosen features and outage duration. The baseline model only considers `CAUSE.CATEGORY` and `CLIMATE.REGION`, which do not account for other potential predictive features such as `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED`. The performance of our model suggests that outage duration is likely influenced by multiple interacting factors, which this baseline model currently fails to capture. In addition to the lack of necessary features, power outages and their durations may not follow a simple linear relationship.
+The baseline model’s low R² score of 0.0077 shows that it does not do a good job of explaining the variance in outage durations. This suggests that additional features may be needed to improve our model’s performance. Some limitations of our baseline model include limited feature selection and the complex relationship between our chosen features and outage duration. The baseline model only considers `CAUSE.CATEGORY` and `CLIMATE.REGION`, which do not account for other potential predictive features such as `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED`. The performance of our model suggests that outage duration is likely influenced by multiple interacting factors, which this baseline model currently fails to capture. In addition to the lack of necessary features, power outages and their durations may not follow a simple linear relationship.
 
 
 ## Final Model
@@ -338,9 +338,9 @@ These features were included to account for seasonal patterns and regions differ
 
 After training and evaluating our final model on the test set, we obtained the following results:
 - Mean Squared Error (MSE): 25,941,331.59266683
-- $R^2$ Score: 0.01183
+- R² Score: 0.01183
 
-Although the $R^2$ score is still relatively low, we can see a noticeable improvement compared to the results from our baseline model (MSE: 26,061,252.56, R²: 0.0077). The decrease in our MSE value indicates that the model’s predictions are closer to the actual outage durations than before, meaning the model has better accuracy. The increase in our $R^2$ score suggests that the model captures more variance in outage duration, although there is still a significant amount of unexplained variance, indicating that additional features or a different modeling approach could further improve our performance.
+Although the R² score is still relatively low, we can see a noticeable improvement compared to the results from our baseline model (MSE: 26,061,252.56, R²: 0.0077). The decrease in our MSE value indicates that the model’s predictions are closer to the actual outage durations than before, meaning the model has better accuracy. The increase in our R² score suggests that the model captures more variance in outage duration, although there is still a significant amount of unexplained variance, indicating that additional features or a different modeling approach could further improve our performance.
 
 
 ## Fairness Analysis
