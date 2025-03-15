@@ -146,7 +146,17 @@ Notable Improvements include the following:
 - Hyperparameter Tuning
     - We applied GridSearchCV with 5-fold cross-validation and neg_mean_squared_error as our scoring metric.
         - poly_degree: Is the degree of polynomial features, we decided to test values of 1, 2, and 3 to determine the best fit for the data. 
-    - The best-performing model had a polynomial degree of 1, which suggests that a linear relationship best fits our dataset.  
+    - The best-performing model had a polynomial degree of 1, which suggests that a linear relationship best fits our dataset.
+
+#### Justification of Feature Engineering
+##### Demand_Per_Customer:
+This feature was created to capture the per-customer impact of an outage. Outages affecting fewer customers but with high demand loss may be prioritized differently by utility companies, resulting in shorter restoration times. By including this feature, the model would better account for the relationship between demand loss and outage duration. 
+
+##### Log_Demand_Loss:
+The log transformation was applied in order to account for the skewness in the DEMAND.LOSS.MW column. Larger outages are not as frequent in this dataset, but can still disproportionately affect the model’s performance. By applying this transformation, we can reduce the influence of these outliers making the data more suitable for regression analysis. 
+
+##### MONTH and Categorical Features:
+These features were included to account for seasonal patterns and regions differences in outage durations and causes. Outages caused by storms for instance, could take longer to restore than outages caused by equipment failure.
 
 #### Final Model Performance Assessment
 After training and evaluating our final model on the test set, we obtained the following results:
