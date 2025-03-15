@@ -52,6 +52,9 @@ To clean this data and account for this many missing values in just our relevant
 |   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | Saturday, July 18, 2015   | 2:00:00 AM          | Sunday, July 19, 2015      | 7:00:00 AM                | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |  5.48959e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.001      |           5.52545 |               1 |
 
 
+<iframe src="https://charl3ne3hsu.github.io/Power_Outage_Causes/Figures/outages.html" width="800" height="600"></iframe>
+
+
 #### Univariate Analysis:
 
 To gain a better understanding of key variables in our dataset, we performed a univariate analysis through visualizations. Below are two plots we generated, along with the description of trends we found in the data.
@@ -82,6 +85,10 @@ This analysis shows that the outage durations in our dataset vary significantly 
 #### Bivariate Analysis:
 
 To determine the relationships between key variables, we performed a bivariate analysis through visualizations. Below are the plots we generated, along with the description of trends we found in the data.
+
+###### Outage Duration by Climate Region (Box Plot):
+
+<iframe src="https://charl3ne3hsu.github.io/Power_Outage_Causes/Figures/bivariate1.html" width="800" height="600"></iframe>
 
 ###### Outage Duration by Cause Category (Box Plot):
 
