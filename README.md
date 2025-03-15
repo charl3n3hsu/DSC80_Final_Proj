@@ -52,6 +52,71 @@ To clean this data and account for this many missing values in just our relevant
 |   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | Saturday, July 18, 2015   | 2:00:00 AM          | Sunday, July 19, 2015      | 7:00:00 AM                | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |  5.48959e+06 |          73.27 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 |            0.001      |           5.52545 |               1 |
 
 
+#### Univariate Analysis:
+
+To gain a better understanding of key variables in our dataset, we performed a univariate analysis through visualizations. Below are two plots we generated, along with the description of trends we found in the data.
+
+###### Frequency Distribution of Cause of Outages:
+
+The bar plot above describes the frequency of different causes of power outages.
+
+From the plot we can see that:
+- Severe weather is the most common cause of power outages, occurring significantly more frequently than any other cause.
+- Intentional attacks and system operability disruptions also contribute to outages but at a much lower frequency.
+- Fuel supply emergencies, public appeals, and islanding are among the least frequent causes of outages.
+
+Through this analysis, we can see that severe weather is a leading cause of power outages, indicating that weather-related factors play a crucial role in outage occurrences.
+
+###### Box Plot of Outage Duration:
+
+The box plot visualizes the distribution of power outage durations across all recorded incidents.
+
+From the plot we can see that:
+
+- A majority of the power outages are relatively short lived, as indicated by the concentration of data in the lower end.
+- There are a lot of outliers within the dataset, some outages lasting tens of thousands of hours. These outages may be due to severe natural disasters and/or infrastructure failures.
+- The dataset is highly skewed, seen by the median outage duration.
+
+This analysis shows that the outage durations in our dataset vary significantly and include extreme cases.
+
+#### Bivariate Analysis:
+
+To determine the relationships between key variables, we performed a bivariate analysis through visualizations. Below are the plots we generated, along with the description of trends we found in the data.
+
+###### Outage Duration by Cause Category (Box Plot):
+
+The box plot shows how different causes impact power outage durations. 
+
+From the plot we can see that:
+- Severe weather is the most common cause of power outages (has broad range of durations).
+- Fuel supply emergencies and public appeals tend to result in longer outages.
+- Intentional attacks and equipment failures usually result in shorter outages. 
+
+This visualization suggests that the cause category is a significant factor of outage duration, as we observe that different causes lead to different restoration times.
+
+###### Outage Duration by Cause Category (Scatter Plot):
+
+To gain better visibility on the distribution, we also used a scatter plot to examine overlapping points.
+
+From the plot we can see that:
+- A majority of the outages result in shorter durations.
+- Most of the points near 0 show that most outages are resolved fairly quickly.
+- There is significant variation between different cause categories.
+
+This visualization further supports that certain causes tend to result in more prolonged outages.
+
+#### Pivot Table of Mean Outage Duration by Climate Region and Cause Category:
+
+This pivot table shows the average outage duration grouped by climate region and cause category.
+
+Key observations:
+- East North Central region has the highest outage duration for equipment failures (26,435 hours).
+- Fuel Supply Emergencies result in long outages across multiple regions.
+- Severe Weather affects all regions, but its impacts on each region vary.
+
+This table allows us to determine the relationship between cause and climate, which is helpful in improving our model's performance.
+
+
 ## Assessment of Missingness
 
 A column is identified as NMAR if the chance that a value is missing depends on the actual missing value, even if it may depend on other columns. A column that is NMAR in this power outage dataset is `CAUSE.CATEGORY.DETAIL`, which provides further information and details on the cause of the power outage. This missingness is dependent on the value itself because it could be missing due to how specific the data collected for the cause of the outage was, or it could be because it is too complicated to pinpoint specific details for the cause category where there is not enough further information to do so. Based on this, the missingness is directly related to the missing value of the cause itself, making it NMAR.
