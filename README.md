@@ -64,7 +64,7 @@ To gain a better understanding of key variables in our dataset, we performed a u
 
 ##### **Frequency Distribution of Cause of Outages:**
 
-<iframe src="Figures/univariate1.html" width="600" height="400"></iframe>
+<iframe src="Figures/univariate1.html" width="700" height="500"></iframe>
 
 The bar plot above describes the frequency of different causes of power outages.
 
@@ -77,7 +77,7 @@ Through this analysis, we can see that severe weather is a leading cause of powe
 
 ##### **Box Plot of Outage Duration:**
 
-<iframe src="Figures/univariate2.html" width="600" height="400"></iframe>
+<iframe src="Figures/univariate2.html" width="700" height="500"></iframe>
 
 The box plot visualizes the distribution of power outage durations across all recorded incidents.
 
@@ -96,7 +96,7 @@ To determine the relationships between key variables, we performed a bivariate a
 
 ##### **Outage Duration by Climate Region (Box Plot):**
 
-<iframe src="Figures/bivariate1.html" width="600" height="400"></iframe>
+<iframe src="Figures/bivariate1.html" width="700" height="500"></iframe>
 
 The box plot shows how outage duration varies across different climate regions.
 
@@ -109,7 +109,7 @@ This visualization shows how climate-based factors could play a role in predicti
 
 ##### **Outage Duration by Climate Region (Scatter Plot):**
 
-<iframe src="Figures/bivariate2.html" width="600" height="400"></iframe>
+<iframe src="Figures/bivariate2.html" width="700" height="500"></iframe>
 
 To gain better visability on the distribution, we also used a scatter plot to examine overlapping points.
 
@@ -121,7 +121,7 @@ This visualization further supports that climate region could be an important fa
 
 ##### **Outage Duration by Cause Category (Box Plot):**
 
-<iframe src="Figures/bivariate3.html" width="600" height="400"></iframe>
+<iframe src="Figures/bivariate3.html" width="700" height="500"></iframe>
 
 The box plot shows how different causes impact power outage durations. 
 
@@ -134,7 +134,7 @@ This visualization suggests that the cause category is a significant factor of o
 
 ##### **Outage Duration by Cause Category (Scatter Plot):**
 
-<iframe src="Figures/bivariate4.html" width="600" height="400"></iframe>
+<iframe src="Figures/bivariate4.html" width="700" height="500"></iframe>
 
 To gain better visibility on the distribution, we also used a scatter plot to examine overlapping points.
 
@@ -190,7 +190,7 @@ In conclusion, the missingness of `OUTAGE.DURATION` is Missing at Random (MAR) b
 
 ##### Plot Interpretation:
 
-<iframe src="Figures/missingness1.html" width="600" height="400"></iframe>
+<iframe src="Figures/missingness1.html" width="700" height="500"></iframe>
 
 The histogram above shows the empirical distribution of the test statistic (mean difference) from 1,000 permutations when testing whether the missingness in our target variable (`OUTAGE.DURATION`) depends on `CAUSE.CATEGORY`. The red dashed vertical line is the observed mean difference, with a value of 0.0863 between the `CAUSE.CATEGORY` distributions for missing and non-missing values in `OUTAGE.DURATION`.
 
@@ -214,7 +214,7 @@ The p-value obtained was 0.0, which shows that we should reject the null hypothe
 
 ##### Plot Interpretation:
 
-<iframe src="Figures/hypothesis_test_1.html" width="600" height="400"></iframe>
+<iframe src="Figures/hypothesis_test_1.html" width="700" height="500"></iframe>
 
 The histogram that plots the empirical distribution of the absolute difference in means for `CAUSE.CATEGORY` and `OUTAGE.DURATION` is heavily right skewed. This shows that most of the permuted differences cluster mainly on the right, meaning that the test results in differences that are in majority small, with just a few differences that are larger occurring in the right tail. The observed difference is also in the far right of the histogram meaning that the observed difference is larger than most permuted differences that were computed. This diagram further shows that the observed difference is unlikely to be due to chance and that the `CAUSE.CATEGORY` truly does affect the `OUTAGE.DURATION`.
 
